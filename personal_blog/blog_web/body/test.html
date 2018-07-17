@@ -1,0 +1,168 @@
+<html>
+<head>
+    <title>兼容IE，chrome 等所有浏览器 回到顶部代码</title>
+    <style type="text/css">
+        .fixed {
+            position: fixed; /*对于火狐等其他浏览器需要设置的*/
+            bottom: 250px;
+            right: 30px;
+            width: 70px;
+            height: 740px;
+            cursor: pointer;
+            display: none;
+            background: url(../images/back_to_top.png) no-repeat left top;
+        }
+        .ie {
+            _position: absolute;
+            _clear: both;
+            _top: expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop +(documentElement.clientHeight-this.clientHeight) - 30 : document.body.scrollTop +(document.body.clientHeight-this.clientHeight) - 30);
+        }
+
+        #btn:hover {
+            background: url(../images/back_to_top.png) no-repeat left -40px;
+        }
+    </style>
+    <script type="text/javascript" src="../js/event.js"></script>
+</head>
+<body>
+    <a href="javascript:void(0);" id="btn" class="fixed ie"></a>
+    <script type="text/javascript">
+        var isTop = true;
+        var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+        var btnBack = document.getElementById('btn');
+        //添加点击事件
+        addEvent(btnBack, 'click', function () {
+            var timer = setInterval(function () {
+                //获取滚动条到顶部的距离
+                //我们需要兼容一些浏览器的写法 所以需要使用||兼容chrome
+                var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+                //返回一个整数
+                var speed = Math.floor(-osTop / 5);
+                //滚动事件
+                isTop = true;
+                //设置滚动条到顶部的距离
+                //我们需要兼容一些浏览器的写法 所以需要使用||兼容chrome
+                document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+                //这里必须设置为真 如果为假 在触发滚动事件的时候 就会关闭定时器
+                if (osTop <= 0) {
+                    clearInterval(timer);
+                }
+            }, 50);
+        });
+
+        //滚动时发生的事件
+        window.onscroll = document.onscroll = function () {
+            //获取滚动条到顶部的距离
+            //我们需要兼容一些浏览器的写法 所以需要使用||兼容chrome
+            var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            //滚动到第二屏的时候 会出现回到顶部的按钮
+            if (osTop > clientHeight) {
+                btnBack.style.display = "block";
+            }
+            else {
+                btnBack.style.display = "none";
+            }
+
+            if (!isTop) {
+                clearInterval();
+            }
+            isTop = false;
+        }
+    </script>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+</html>

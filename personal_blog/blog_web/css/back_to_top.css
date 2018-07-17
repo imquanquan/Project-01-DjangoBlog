@@ -1,0 +1,27 @@
+ .fixed {
+        	z-index:3;
+            position: fixed; /*对于火狐等其他浏览器需要设置的*/
+            bottom: 120px;
+            right: 270px;
+            width: 70px;
+            height: 740px;
+            cursor: pointer;
+            display: none; 
+            background:transparent url(../images/back_to_top.png) no-repeat -0px -25px;
+            outline:none;        
+              
+    		-moz-transition:background 0.25s;
+    		-webkit-transition:background 0.25s;
+    		-o-transition:background 0.25s;
+        }
+        .ie {
+            _position: absolute;
+            _clear: both;
+            outline:none;
+			_top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat')?documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) - 30: document.body.scrollTop +(document.body.clientHeight-this.clientHeight) - 30);
+        }
+
+        #btn:hover {
+            background:transparent url(../images/back_to_top.png) no-repeat -2px 25px;
+            outline: none;
+        }
